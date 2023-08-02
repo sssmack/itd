@@ -47,7 +47,7 @@
 
 [weather]
     enabled = true
-    location = "Los Angeles, CA"
+    location = "Elbert, CO"
 
 [logging]
     level = "info"

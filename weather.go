@@ -90,6 +90,8 @@ func initWeather(ctx context.Context, dev *infinitime.Device) error {
 			currentData := current.Data.Instant.Details
 
 			// Add temperature event
+				currentData.AirTemperature = currentData.AirTemperature * 1.8 + 32 
+				fmt.Printf( "the current temp is %v\n", currentData.AirTemperature )
 			err = dev.AddWeatherEvent(weather.TemperatureEvent{
 				TimelineHeader: weather.NewHeader(
 					weather.EventTypeTemperature,
@@ -238,9 +240,16 @@ func getWeather(ctx context.Context, lat, lon float64) (*METResponse, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println(
+		fmt.Sprintf(
+			"https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=%.2f&lon=%.2f",
+			lat,
+			lon,
+		))
 
 	// Set identifying user agent as per NMI requirements
-	req.Header.Set("User-Agent", fmt.Sprintf("ITD/%s gitea.arsenm.dev/Arsen6331/itd", version))
+//	req.Header.Set("User-Agent", fmt.Sprintf("ITD/%s gitea.arsenm.dev/Arsen6331/itd", version))
+	req.Header.Set("User-Agent", "Mozilla/5.0 (X11; Linux i686; rv:13.0) Gecko/13.0 Firefox/13.0")
 
 	// Perform request
 	res, err := http.DefaultClient.Do(req)

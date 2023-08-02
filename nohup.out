@@ -1,0 +1,7 @@
+[90m10:22PM[0m [32mINF[0m Connected to InfiniTime [36mversion=[0m1.13.0
+[90m10:22PM[0m [32mINF[0m Initialized InfiniTime music controls
+[90m10:22PM[0m [32mINF[0m Relaying calls to InfiniTime
+[90m10:22PM[0m [32mINF[0m Relaying notifications to InfiniTime
+https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=39.31&lon=-104.09
+[90m10:22PM[0m [32mINF[0m Started control socket [36mpath=[0m/tmp/itd/socket
+the current temp is 75.92
